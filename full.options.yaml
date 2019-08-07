@@ -1,0 +1,35 @@
+version: 1
+info:
+  
+
+defaults:
+  access:
+    - user: grubb@platform.sh
+      role: admin
+    - user: doug.goldberg@platform.sh
+      role: viewer 
+  variables:
+    - name: env:COMPOSER_AUTH
+      # This is the SHA256 hash of "password" for example purposes
+      value: "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8"
+      is_json: false
+      visible_build: true
+      visible_runtime: false
+
+# The regions key allows the list of available regions to be modified.
+regions:
+  exclude:
+    - 'eu-2.platform.sh'
+    - 'au.platform.sh'
+
+# The plans key allows the list of available plans to be modified.
+plans:
+  only:
+    - 'development'
+
+# The initialize key specifies the repository to actually be cloned once
+# the project is ready.
+initialize:
+  repository: git://github.com/platformsh/template-drupal8.git@master
+  profile: Drupal 8 J&J Demo
+
